@@ -8,5 +8,5 @@ variable "test1" {
 
 }
 output "test1" {
-  value = ""
+  value = "var.test1"
 }
