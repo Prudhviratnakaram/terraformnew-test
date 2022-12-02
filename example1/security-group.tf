@@ -1,14 +1,21 @@
 resource "aws_security_group" "web" {
   name        = "web"
   description = "web"
-  vpc_id = "vpc-03f46432a850ce405"
+  vpc_id      = "vpc-03f46432a850ce405"
+  ingress {
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   ingress {
-    description      = "TLS from VPC"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -23,4 +30,3 @@ resource "aws_security_group" "web" {
     Name = "web"
   }
 }
-
