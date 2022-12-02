@@ -1,7 +1,3 @@
-
-terraform {
-  required_providers {
-    aws = "~> 1.0"
-    region = "us-east-1"
-  }
+provider "aws" {
+  region = "us-east-1"
 }
