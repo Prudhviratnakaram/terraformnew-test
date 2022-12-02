@@ -1,6 +1,7 @@
 resource "aws_security_group" "web" {
   name        = "web"
   description = "web"
+  vpc_id = "vpc-03f46432a850ce405"
 
   ingress {
     description      = "TLS from VPC"
